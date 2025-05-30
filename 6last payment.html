@@ -389,6 +389,166 @@
                 </div>
             </div>
             <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transaction Verification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #red;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background-color: #fef2f2;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #f87171;
+      box-shadow: 0 0 10px rgba(255,0,0,0.2);
+    }
+
+    label, input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #f87171;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #ef4444;
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .spinner {
+      border: 4px solid #ef4444;
+      border-top: 4px solid #b91c1c;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: #fef2f2;
+      margin: 15% auto;
+      padding: 30px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+      text-align: center;
+      border: 2px solid #f87171;
+    }
+
+    .modal-content p {
+      color: #dc2626;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .modal-content button {
+      background-color: #ef4444;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Enter Transaction ID</h2>
+  <label for="transactionId">Transaction ID:</label>
+  <input type="text" id="transactionId" minlength="10" placeholder="e.g CEM9I5HQ5TT" required>
+  <button id="proceedBtn" onclick="verifyTransaction()">Proceed</button>
+  <div class="spinner" id="spinner"></div>
+</div>
+
+<!-- Modal -->
+<div id="popupModal" class="modal">
+  <div class="modal-content">
+    <p>Please wait for your payment transactions to be confirmed</p>
+    <button onclick="redirectToNextPage()">OK</button>
+  </div>
+</div>
+
+<script>
+  function verifyTransaction() {
+    const input = document.getElementById('transactionId');
+    const transactionId = input.value.trim();
+    const spinner = document.getElementById('spinner');
+
+    if (transactionId.length < 10) {
+      alert('Transaction ID must be at least 10 characters long.');
+      return;
+    }
+
+    spinner.style.display = 'block'; // Show loading spinner
+    document.getElementById('proceedBtn').disabled = true;
+
+    // Simulate 10-second loading
+    setTimeout(() => {
+      spinner.style.display = 'none';
+      showModal();
+    }, 10000);
+  }
+
+  function showModal() {
+    const modal = document.getElementById('popupModal');
+    modal.style.display = 'block';
+  }
+
+  function redirectToNextPage() {
+    // Redirect to the next page (customize the link)
+    window.location.href = 'confirmation.html';
+  }
+
+  // Prevent closing modal on outside click
+  window.addEventListener('click', function(event) {
+    const modal = document.getElementById('popupModal');
+    const content = modal.querySelector('.modal-content');
+    if (event.target === modal && !content.contains(event.target)) {
+      event.stopPropagation();
+    }
+  });
+</script>
+
+</body>
+</html>
+
+            
+            <!DOCTYPE html>
             <html lang="en">
 
             <head>
@@ -453,3 +613,4 @@
         </body>
 
         </html>
+          
