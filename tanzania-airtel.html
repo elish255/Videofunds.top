@@ -1,0 +1,291 @@
+    
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Welcome</title>
+            <style>
+                /* General Styles */
+
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: red;
+                }
+
+                /* Welcome Container */
+
+                .welcome-container {
+                    text-align: center;
+                    background:darkred;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    width: 80%;
+                    margin: 20px auto;
+                }
+
+                h1 {
+                    color: #333;
+                }
+
+                .image-container {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
+                .image-container img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                    margin-bottom: 10px;
+                }
+
+                .image-container p {
+                    font-size: 16px;
+                    color: #555;
+                }
+
+                a {
+                    display: inline-block;
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    background-color: ;
+                    color:darkred;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+
+                a:hover {
+                    background-color: ;
+                }
+
+                /* Card Container Styles */
+
+                .card-container {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    /* Three columns for the cards */
+                    gap: 20px;
+                    padding: 20px;
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                    /* Added margin-bottom for space before the footer */
+                }
+
+                .Div_card {
+                    background-color: darkred;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                    overflow: hidden;
+                    padding: 20px;
+                    transition: transform 0.3s ease;
+                    color: white;
+                    /* Make text inside the cards white */
+                }
+
+                .Div_card:hover {
+                    transform: translateY(-10px);
+                }
+
+                .img4 img {
+                    width: 100%;
+                    border-radius: 15px;
+                    margin-bottom: 15px;
+                }
+
+                .div_h {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+
+                .div_ol ol {
+                    list-style-type: decimal;
+                    padding-left: 20px;
+                }
+
+                .div_ol li {
+                    font-size: 16px;
+                    margin: 8px 0;
+                    color: #fff;
+                    /* Ensure list items are also white */
+                }
+
+                /* For smaller screens, stack the cards vertically */
+
+                @media (max-width: 768px) {
+                    .card-container {
+                        grid-template-columns: 1fr;
+                    }
+                }
+
+                /* Information Card Styles */
+
+                .info-card {
+                    background-color: black;
+                    color: white;
+                }
+
+                /* Footer Styles */
+
+                .footer {
+                    background-color: #333;
+                    color: white;
+                    text-align: center;
+                    padding: 20px 0;
+                    /* Added more padding for better spacing */
+                    position: relative;
+                    bottom: 0;
+                    width: 100%;
+                }
+            </style>
+        </head>
+
+        <body>
+
+
+            <!-- Payment Instructions Section -->
+            <h1 style="text-align: center;">.</h1>
+
+            <div class="card-container">
+      <!-- Airtel Money Payment Instruction -->
+                <div class="Div_card" style="background-color: rgb(202, 23, 23);">
+                    <header class="img4">
+                        <img src="images/Airtel Money.jpg" alt="Airtel Money">
+                    </header>
+                    <div class="div_h" style="color: rgb(252, 249, 249);">HOW TO PAY AIRTEL MONEY</div>
+                    <div class="div_ol">
+                        <ol type="1">
+                            <li>DIAL *150*60#</li>
+                            <li>CHOOSE 5: MAKE PAYMENTS </li>
+                            <li>CHOOSE 1: PAY MECHANT (ALL NETWORKS))</li>
+                            <li>CHOOSE 1: TAMQR(TIPS)</li>
+                            <li>ENTER MERCHANT NUMBER <b> 23523899 </b> (VIDEOFUNDS TOP 2)</li>
+                            <li>ENTER AMOUNT 37,000-/TSH</li>
+                            <li>Enter the PIN to authorize the transaction.</li>
+                        </ol>
+                    </div>
+                </div>
+                      <!-- Notification HTML -->
+<div id="notification" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: green;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    display: none;
+    animation: fadeInOut 5s ease-in-out;
+">
+    <strong>Success!</strong><br>
+    <span id="notification-text">Someone just activated!</span>
+</div>
+
+<!-- Animation Keyframes -->
+<style>
+@keyframes fadeInOut {
+    0% {opacity: 0; transform: translateY(-20px);}
+    10% {opacity: 1; transform: translateY(0);}
+    90% {opacity: 1; transform: translateY(0);}
+    100% {opacity: 0; transform: translateY(-20px);}
+}
+</style>
+<script>
+// Sample names and African country flags
+const names = ["Juma", "Aisha", "Kwame", "Fatou", "Ahmed", "Blessing", "Chinedu", "Daniel", "Olivia", "Matthew",
+            "Patrick", "Grace", "Brian", "Linda", "James", "Mary", "Robert", "Jennifer", "John", "Lisa",
+            "William", "Elizabeth", "Joseph", "Susan", "Thomas", "Karen", "Charles", "Nancy", "Christopher", "Betty",
+            "Anthony", "Margaret", "Mark", "Sandra", "Donald", "Ashley", "Steven", "Kimberly", "Paul", "Donna",
+            "Andrew", "Dorothy", "Joshua", "Michelle", "Kenneth", "Carol", "Kevin", "Amanda", "Brian", "Melissa",
+            "George", "Deborah", "Edward", "Stephanie", "Ronald", "Rebecca", "Timothy", "Zanele", "Ibrahim", "Musa"];
+const flags = ["🇹🇿", "🇰🇪", "🇺🇬", "🇳🇬", "🇿🇦", "🇬🇭", "🇪🇹", "🇨🇲", "🇨🇮", "🇸🇳", "🇩🇿", "🇿🇼", "🇲🇦", "🇲🇼", "🇧🇮"];
+
+function showNotification() {
+    const name = names[Math.floor(Math.random() * names.length)];
+    const flag = flags[Math.floor(Math.random() * flags.length)];
+    const text = `${name} from ${flag} just completed activation!`;
+
+    const notification = document.getElementById("notification");
+    const notificationText = document.getElementById("notification-text");
+
+    notificationText.textContent = text;
+    notification.style.display = "block";
+
+    // Restart animation
+    notification.style.animation = "none";
+    void notification.offsetWidth; // Force reflow
+    notification.style.animation = "fadeInOut 5s ease-in-out";
+
+    // Hide after 5s
+    setTimeout(() => {
+        notification.style.display = "none";
+    }, 5000);
+}
+
+// Show notification every 8 seconds
+setInterval(showNotification, 8000);
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* WhatsApp Button Style */
+
+        .whatsapp-button {
+            position: fixed;
+            /* Keeps the button fixed while scrolling */
+            left: 10px;
+            /* Adjust the distance from the left side */
+            bottom: 10px;
+            /* Adjust the distance from the bottom */
+            z-index: 1000;
+            /* Ensures the button is above other elements */
+            background-color: #25D366;
+            /* WhatsApp green color */
+            padding: 10px;
+            border-radius: 30px;
+            /* Makes the button circular */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        /* WhatsApp Icon inside the Button */
+
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Hover effect */
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            /* Slightly enlarge the button on hover */
+        }
+    </style>
+</head>
+
+<body>
+ <!-- WhatsApp Button -->
+    <a href="https://wa.link/h2ch6o" target="_blank" class="whatsapp-button" title="Chat with us on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+
+</body>
+
+</html>
+</div>
